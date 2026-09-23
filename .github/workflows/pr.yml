@@ -14,4 +14,10 @@ jobs:
         with:
           persist-credentials: false
           submodules: false
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          submodules: false
+          repo: open-ead/nnsdk
+          path: lib/nnsdk
       - run: task pr
