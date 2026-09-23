@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.15)
 
 set(NN_FONT_HEADERS
+  include/nn/font/font_Util.h
 )
 
 set(NN_FONT_SOURCES
+  src/font/font_Stub.cpp
 )
 
 add_library(nn_font OBJECT ${NN_FONT_SOURCES})
