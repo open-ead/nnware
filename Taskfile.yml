@@ -5,14 +5,16 @@ version: '3'
 vars:
   # Modules to check with clang-format/clang-tidy;
   MODULES: atk,font,g3d,ui2d,vfx
-  _SOURCES1: ',{{.MODULES}}'
-  SOURCES: '{{._SOURCES1 | replace "," " lib/"}}'
+  _MODULES1: ',{{.MODULES}}'
+  _MODULES2: '^{{.MODULES}}$'
+  SOURCES: '{{._MODULES1 | replace "," " lib/"}}'
   CLANG_TIDY_LIBS: '{{.MODULES | replace " " "" | replace "," "|" }}'
 
 tasks:
   clone-deps:
     desc: Clone dependencies for development
     cmds:
+      - rm -rf lib/nnsdk
       - git clone https://github.com/open-ead/nnsdk lib/nnsdk
     
   pr:
@@ -36,9 +38,11 @@ tasks:
         -DNNSDK_DIR=$(pwd)/lib/nnsdk
   build:
     desc: Check the project builds
+    vars:
+      VERIFY_TARGETS: '{{._MODULES2 | replace " " "" | replace "," "$ ^" | replace "^" "--target nn_" | replace "$" "_verify_interface_header_sets"}}'
     cmds:
       - cmake --build build
-      - cmake --build build --target all_verify_header_sets
+      - cmake --build build {{.VERIFY_TARGETS}}
 
   check:
     desc: Run clang-format and clang-tidy checks
