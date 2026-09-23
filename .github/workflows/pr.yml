@@ -1,0 +1,17 @@
+name: pr
+on: 
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/open-ead/ubuntu-builder
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          submodules: false
+      - run: task pr
