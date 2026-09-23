@@ -18,6 +18,6 @@ jobs:
         with:
           persist-credentials: false
           submodules: false
-          repo: open-ead/nnsdk
+          repository: open-ead/nnsdk
           path: lib/nnsdk
       - run: task pr
