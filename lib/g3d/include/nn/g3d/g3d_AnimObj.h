@@ -1,56 +1,57 @@
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
+
+#include <nn/g3d/g3d_ModelObj.h>
+#include <nn/g3d/g3d_ResModel.h>
 
 namespace nn::g3d {
 class AnimFrameCache;
-class ModelObj;
-class ResModel;
 
 class AnimBindTable {
 public:
-    void Initialize(u32*, s32);
-    void ClearAll(s32);
-    void BindAll(u16);
+    void Initialize(uint32_t*, int32_t);
+    void ClearAll(int32_t);
+    void BindAll(uint16_t);
 
 private:
-    u32* _0;
-    s16 _8;
-    s16 _a;
-    s16 _c;
-    s16 _e;
+    uint32_t* _0;
+    int16_t _8;
+    int16_t _a;
+    int16_t _c;
+    int16_t _e;
 };
 static_assert(sizeof(AnimBindTable) == 0x10);
 
 class AnimFrameCtrl {
 public:
-    using PlayFunc = f32 (*)(f32, f32, f32, void*);
+    using PlayFunc = float (*)(float, float, float, void*);
 
-    void Initialize(f32, f32, PlayFunc);
-    static f32 PlayOneTime(f32, f32, f32, void*);
-    static f32 PlayLoop(f32, f32, f32, void*);
+    void Initialize(float, float, PlayFunc);
+    static float PlayOneTime(float, float, float, void*);
+    static float PlayLoop(float, float, float, void*);
 
     void update() { mFrame = mPlayFunc(mFrame + mFrameRate, _4, mFrameMax, _18); }
 
-    f32 getFrame() const { return mFrame; }
+    float getFrame() const { return mFrame; }
 
-    void setFrame(f32 frame) { mFrame = mPlayFunc(frame, _4, mFrameMax, _18); }
+    void setFrame(float frame) { mFrame = mPlayFunc(frame, _4, mFrameMax, _18); }
 
-    f32 getFrameMax() const { return mFrameMax; }
+    float getFrameMax() const { return mFrameMax; }
 
-    f32 getFrameRate() const { return mFrameRate; }
+    float getFrameRate() const { return mFrameRate; }
 
-    void setFrameRate(f32 rate) { mFrameRate = rate; }
+    void setFrameRate(float rate) { mFrameRate = rate; }
 
     bool isEnd() const { return mFrameMax <= mFrame; }
 
     bool isOneTime() const { return mPlayFunc == PlayOneTime; }
 
 private:
-    f32 mFrame;
-    f32 _4;
-    f32 mFrameMax;
-    f32 mFrameRate;
+    float mFrame;
+    float _4;
+    float mFrameMax;
+    float mFrameRate;
     PlayFunc mPlayFunc;
     void* _18;
 };
@@ -58,13 +59,13 @@ static_assert(sizeof(AnimFrameCtrl) == 0x20);
 
 class AnimContext {
 public:
-    void Initialize(AnimFrameCache*, s32);
+    void Initialize(AnimFrameCache*, int32_t);
 
 private:
     AnimFrameCache* mAnimFrameCache;
-    s32 _8;
-    s32 _c;
-    s32 _10;
+    int32_t _8;
+    int32_t _c;
+    int32_t _10;
 };
 static_assert(sizeof(AnimContext) == 0x18);
 
@@ -76,12 +77,12 @@ public:
 
     virtual void ClearResult();
     virtual void Calculate();
-    virtual s32 Bind(const ResModel*);
-    virtual s32 Bind(const ModelObj*);
+    virtual int32_t Bind(const ResModel*);
+    virtual int32_t Bind(const ModelObj*);
     virtual void BindFast(const ResModel*);
     virtual void ApplyTo(ModelObj*) const;
 
-    void ResetFrameCtrl(s32, bool);
+    void ResetFrameCtrl(int32_t, bool);
 
     AnimFrameCtrl* getFrameCtrlPtr() const { return mFrameCtrlPtr; }
 
@@ -96,8 +97,8 @@ static_assert(sizeof(AnimObj) == 0x58);
 
 class ModelAnimObj : public AnimObj {
 public:
-    void SetBindFlagImpl(s32, AnimObj::BindFlag);
-    const AnimObj::BindFlag& GetBindFlagImpl(s32) const;
+    void SetBindFlagImpl(int32_t, AnimObj::BindFlag);
+    const AnimObj::BindFlag& GetBindFlagImpl(int32_t) const;
 
 private:
     AnimBindTable mBindTable;

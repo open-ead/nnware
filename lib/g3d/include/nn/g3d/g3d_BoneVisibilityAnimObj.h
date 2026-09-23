@@ -1,7 +1,6 @@
 #pragma once
 
-#include <nn/g3d/AnimObj.h>
-#include <nn/types.h>
+#include <nn/g3d/g3d_AnimObj.h>
 
 namespace nn::g3d {
 
@@ -9,8 +8,8 @@ class BoneVisibilityAnimObj : public ModelAnimObj {
 public:
     void ClearResult() override;
     void Calculate() override;
-    s32 Bind(const ResModel*) override;
-    s32 Bind(const ModelObj*) override;
+    int32_t Bind(const ResModel*) override;
+    int32_t Bind(const ModelObj*) override;
     void BindFast(const ResModel*) override;
     void ApplyTo(ModelObj*) const override;
 

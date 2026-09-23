@@ -4,20 +4,22 @@ find_nnsdk()
 find_nnsdk_module(nn_gfx)
 
 set(NN_G3D_HEADERS
-  include/nn/g3d/g3d_ResMaterial.h
-  include/nn/g3d/g3d_ResLightAnim.h
-  include/nn/g3d/g3d_SkeletonObj.h
-  include/nn/g3d/g3d_ResFogAnim.h
-  include/nn/g3d/g3d_ResFile.h
-  include/nn/g3d/g3d_ResMaterialAnim.h
-  include/nn/g3d/g3d_ResSkeletalAnim.h
-  include/nn/g3d/g3d_ResShapeAnim.h
-  include/nn/g3d/g3d_ViewVolume.h
-  include/nn/g3d/g3d_ResSceneAnim.h
-  include/nn/g3d/g3d_ResSkeleton.h
-  include/nn/g3d/g3d_ModelObj.h
+  include/nn/g3d/g3d_AnimObj.h
   include/nn/g3d/g3d_BindFuncTable.h
+  include/nn/g3d/g3d_BoneVisibilityAnimObj.h
+  include/nn/g3d/g3d_ModelObj.h
+  include/nn/g3d/g3d_ResFile.h
+  include/nn/g3d/g3d_ResFogAnim.h
+  include/nn/g3d/g3d_ResLightAnim.h
+  include/nn/g3d/g3d_ResMaterialAnim.h
+  include/nn/g3d/g3d_ResMaterial.h
   include/nn/g3d/g3d_ResModel.h
+  include/nn/g3d/g3d_ResSceneAnim.h
+  include/nn/g3d/g3d_ResShapeAnim.h
+  include/nn/g3d/g3d_ResSkeletalAnim.h
+  include/nn/g3d/g3d_ResSkeleton.h
+  include/nn/g3d/g3d_SkeletonObj.h
+  include/nn/g3d/g3d_ViewVolume.h
   include/nn/g3d/g3d_World.h
 )
 
