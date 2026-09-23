@@ -1,24 +1,23 @@
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
 
-namespace nn {
-namespace atk {
+namespace nn::atk {
 
 class SoundArchive {
 public:
     struct SequenceSoundInfo;
 
-    const char* GetItemLabel(u32 id) const;
-    u32 GetItemId(const char* label) const;
+    const char* GetItemLabel(uint32_t id) const;
+    uint32_t GetItemId(const char* label) const;
 };
 
 class SoundActor  // Inherits SoundStartable, size: 0x7C
 {
 public:
     virtual ~SoundActor();
-    u8 data[0x7C - 0x4];
+    uint8_t data[0x7C - 0x4];
 };
 
-}  // namespace atk
-}  // namespace nn
+} // namespace nn::atk
+

@@ -1,14 +1,13 @@
 /**
- * @file SoundPlayer.h
  * @brief Sound player.
  */
 
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
 
-namespace nn {
-namespace atk {
+
+namespace nn::atk {
 enum PauseMode {
 
 };
@@ -18,39 +17,39 @@ public:
     SoundPlayer();
     ~SoundPlayer();
 
-    void StopAllSound(s32);
+    void StopAllSound(int32_t);
     void Update();
     void DoFreePlayerHeap();
     void detail_SortPriorityList(bool);
-    void PauseAllSound(s32, bool);
-    void PauseAllSound(bool, s32, nn::atk::PauseMode);
-    void SetVolume(f32 vol);
-    void SetLowPassFilterFrequency(f32 filterFreq);
-    void SetBiquadFilter(s32 filterType, f32 baseFreq);
-    void SetDefaultOutputLine(u32 line);
+    void PauseAllSound(int32_t, bool);
+    void PauseAllSound(bool, int32_t, nn::atk::PauseMode);
+    void SetVolume(float vol);
+    void SetLowPassFilterFrequency(float filterFreq);
+    void SetBiquadFilter(int32_t filterType, float baseFreq);
+    void SetDefaultOutputLine(uint32_t line);
 
-    void detail_SetPlayableSoundLimit(s32 limit);
-    bool CanPlaySound(s32);
+    void detail_SetPlayableSoundLimit(int32_t limit);
+    bool CanPlaySound(int32_t);
 
-    u64 _0;
-    u64 _8;
-    u64 _10;
-    u64 _18;
-    u64 _20;
-    u64 _28;
-    u64 _30;
-    u64 _38;
-    s32 _40;
-    s32 mPlayableSoundCount;  // _44
-    s32 _48;
-    f32 mVolume;             // _4C
-    f32 mLowPassFreq;        // _50
-    s32 mFilterType;         // _54
-    f32 mBaseFreq;           // _58
-    u32 mDefaultOutputLine;  // _5C
-    f32 mOutputVolume;       // _60
-    u64 _64;
-    u64 _6C;
+    uint64_t _0;
+    uint64_t _8;
+    uint64_t _10;
+    uint64_t _18;
+    uint64_t _20;
+    uint64_t _28;
+    uint64_t _30;
+    uint64_t _38;
+    int32_t _40;
+    int32_t mPlayableSoundCount;  // _44
+    int32_t _48;
+    float mVolume;             // _4C
+    float mLowPassFreq;        // _50
+    int32_t mFilterType;         // _54
+    float mBaseFreq;           // _58
+    uint32_t mDefaultOutputLine;  // _5C
+    float mOutputVolume;       // _60
+    uint64_t _64;
+    uint64_t _6C;
 };
-}  // namespace atk
-}  // namespace nn
+} // namespace nn::atk
+

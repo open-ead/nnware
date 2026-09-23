@@ -1,14 +1,13 @@
 /**
- * @file SoundArchiveManager.h
  * @brief Sound archive manager implementation.
  */
 
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
 
-namespace nn {
-namespace atk {
+namespace nn::atk {
+
 class SoundHandle;
 class SoundArchive;
 class SoundDataManager;
@@ -28,15 +27,15 @@ public:
     bool IsAvailable() const;
     nn::atk::detail::AddonSoundArchiveContainer* GetAddonSoundArchive(char const*) const;
 
-    u64 _8;
-    u64* _10;
+    uint64_t _8;
+    uint64_t* _10;
     nn::atk::detail::AddonSoundArchiveContainer* _18;
-    u64* _20;
+    uint64_t* _20;
     nn::atk::SoundArchive* mSoundArchive;  // _28
-    u64 _30;
-    u64 _38;
-    u64 _40;
+    uint64_t _30;
+    uint64_t _38;
+    uint64_t _40;
 };
 }  // namespace detail
-}  // namespace atk
-}  // namespace nn
+} // namespace nn::atk
+

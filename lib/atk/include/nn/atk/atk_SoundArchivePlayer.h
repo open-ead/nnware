@@ -1,5 +1,4 @@
 /**
- * @file SoundArchivePlayer.h
  * @brief Basic sound player from a sound archive.
  */
 
@@ -11,8 +10,7 @@
 #include <nn/atk/detail/atk_StreamSoundRuntime.h>
 #include <nn/atk/detail/atk_WaveSoundRuntime.h>
 
-namespace nn {
-namespace atk {
+namespace nn::atk {
 class SoundArchivePlayer {
 public:
     SoundArchivePlayer();
@@ -21,7 +19,7 @@ public:
 
     bool IsAvailable() const;
     void Finalize();
-    void StopAllSound(s32, bool);
+    void StopAllSound(int32_t, bool);
     void DisposeInstances();
 
     nn::atk::detail::SoundArchiveManager mArchiveManager;          // _8
@@ -29,9 +27,10 @@ public:
     nn::atk::detail::WaveSoundRuntime mWaveSoundRuntime;           // _130
     nn::atk::detail::AdvancedWaveSoundRuntime mAdvancedWaveSound;  // _1B0
     nn::atk::detail::StreamSoundRuntime mStreamSoundRuntime;       // _1E0
-    u64 _290;
-    u32 _298;
-    u8 _29C[0x2E8 - 0x29C];
+    uint64_t _290;
+    uint32_t _298;
+    uint8_t _29C[0x2E8 - 0x29C];
 };
-}  // namespace atk
-}  // namespace nn
+
+} // namespace nn::atk
+

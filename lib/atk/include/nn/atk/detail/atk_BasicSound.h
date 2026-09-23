@@ -1,14 +1,13 @@
 /**
- * @file BasicSound.h
  * @brief A basic sound.
  */
 
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
 
-namespace nn {
-namespace atk {
+
+namespace nn::atk {
 class SoundActor;
 class SoundPlayer;
 
@@ -34,31 +33,31 @@ public:
     virtual void UpdateMoveValue();
     virtual void OnUpdateParam();
 
-    void SetPriority(s32, s32);
-    void GetPriority(s32*, s32*) const;
+    void SetPriority(int32_t, int32_t);
+    void GetPriority(int32_t*, int32_t*) const;
     void ClearIsFinalizedForCannotAllocatedResourceFlag();
-    void SetId(u32 newID);
+    void SetId(uint32_t newID);
     bool IsAttachedGeneralHandle();
     void DetachGeneralHandle();
     bool IsAttachedTempGeneralHandle();
     void DetachTempGeneralHandle();
     void StartPrepared();
-    void Stop(s32);
-    void SetPlayerPriority(s32);
+    void Stop(int32_t);
+    void SetPlayerPriority(int32_t);
     void ForceStop();
-    void Pause(bool, s32);
-    void Mute(bool, s32);
-    void SetAutoStopCounter(s32);
-    void FadeIn(s32);
+    void Pause(bool, int32_t);
+    void Mute(bool, int32_t);
+    void SetAutoStopCounter(int32_t);
+    void FadeIn(int32_t);
     bool IsPause() const;
     bool IsMute() const;
     void Update();
     void UpdateParam();
     void CalculateVolume() const;
-    f32 CalculatePitch() const;
-    f32 CalculateLpfFrequency() const;
-    u32 CalculateOutLineFlag() const;
-    void CalculateBiquadFilter(s32*, f32*) const;
+    float CalculatePitch() const;
+    float CalculateLpfFrequency() const;
+    uint32_t CalculateOutLineFlag() const;
+    void CalculateBiquadFilter(int32_t*, float*) const;
     void AttachPlayerHeap(nn::atk::detail::PlayerHeap*);
     void DetachPlayerHeap(nn::atk::detail::PlayerHeap*);
     void AttachSoundPlayer(nn::atk::SoundPlayer*);
@@ -67,71 +66,71 @@ public:
     void DetachSoundActor(nn::atk::SoundActor*);
     void AttachExternalSoundPlayer(nn::atk::detail::ExternalSoundPlayer*);
     void DetachExternalSoundPlayer(nn::atk::detail::ExternalSoundPlayer*);
-    u32 GetRemainingFadeFrames() const;
-    u32 GetRemainingPauseFadeFrames() const;
-    u32 GetRemainingMuteFadeFrames() const;
-    void SetInitialVolume(f32 vol);
-    f32 GetInitialVolume() const;
-    void SetVolume(f32, s32);
-    s32 GetVolume() const;
-    void SetPitch(f32);
-    f32 GetPitch() const;
-    void SetLpfFreq(f32);
-    f32 GetLpfFreq() const;
-    void SetBiquadFilter(s32, f32);
-    void GetBiquadFilter(s32*, f32*) const;
-    void SetOutputLine(u32);
-    u32 GetOutputLine() const;
+    uint32_t GetRemainingFadeFrames() const;
+    uint32_t GetRemainingPauseFadeFrames() const;
+    uint32_t GetRemainingMuteFadeFrames() const;
+    void SetInitialVolume(float vol);
+    float GetInitialVolume() const;
+    void SetVolume(float, int32_t);
+    int32_t GetVolume() const;
+    void SetPitch(float);
+    float GetPitch() const;
+    void SetLpfFreq(float);
+    float GetLpfFreq() const;
+    void SetBiquadFilter(int32_t, float);
+    void GetBiquadFilter(int32_t*, float*) const;
+    void SetOutputLine(uint32_t);
+    uint32_t GetOutputLine() const;
     void ResetOutputLine();
     void SetMixMode(nn::atk::MixMode);
     nn::atk::MixMode GetMixMode();
-    void SetPan(f32);
-    f32 GetPan() const;
-    void SetSurroundPan(f32);
-    f32 GetSurroundPan() const;
-    void SetMainSend(f32);
-    f32 GetMainSend() const;
+    void SetPan(float);
+    float GetPan() const;
+    void SetSurroundPan(float);
+    float GetSurroundPan() const;
+    void SetMainSend(float);
+    float GetMainSend() const;
 
-    u64* _8;                             // nn::atk::detail::PlayerHeap*
-    u64* _10;                            // nn::atk::SoundHandle*
-    u64* _18;                            // nn::atk::SoundHandle*
+    uint64_t* _8;                             // nn::atk::detail::PlayerHeap*
+    uint64_t* _10;                            // nn::atk::SoundHandle*
+    uint64_t* _18;                            // nn::atk::SoundHandle*
     nn::atk::SoundPlayer* mSoundPlayer;  // _20
-    u64* _28;                            // nn::atk::SoundActor*
-    u64* _30;                            // nn::atk::detail::ExternalSoundPlayer*
-    u64* _38;                            // nn::atk::SoundArchive*
-    u8 _40[0xF0 - 0x40];
-    s32 mPriority;  // _F0
-    u32 _F4;
-    u32 _F8;
-    s32 mAutoStopCounter;  // _FC
-    u64 _100;
-    u32 mID;  // _108
-    u32 _10C;
-    u32 _110;
-    u32 _114;
-    f32 mInitialVolume;  // _118
-    f32 mPitch;          // _11C
-    f32 mLpfFreq;        // _120
-    f32 _124;
-    u32 mOutputLine;  // _128
-    f32 _12C;
-    f32 mVolume;  // _130
-    u32 _134;
-    u32 _138;
+    uint64_t* _28;                            // nn::atk::SoundActor*
+    uint64_t* _30;                            // nn::atk::detail::ExternalSoundPlayer*
+    uint64_t* _38;                            // nn::atk::SoundArchive*
+    uint8_t _40[0xF0 - 0x40];
+    int32_t mPriority;  // _F0
+    uint32_t _f4;
+    uint32_t _f8;
+    int32_t mAutoStopCounter;  // _FC
+    uint64_t _100;
+    uint32_t mID;  // _108
+    uint32_t _10C;
+    uint32_t _110;
+    uint32_t _114;
+    float mInitialVolume;  // _118
+    float mPitch;          // _11C
+    float mLpfFreq;        // _120
+    float _124;
+    uint32_t mOutputLine;  // _128
+    float _12C;
+    float mVolume;  // _130
+    uint32_t _134;
+    uint32_t _138;
     nn::atk::MixMode mMixMode;  // _13C
-    f32 mPan;                   // _140
-    f32 mSurroundPan;           // _144
-    f32 mMainSend;              // _148
-    u8 _14C[0x158 - 0x14C];
-    f32 mOutputVol;  // _158
-    u8 _15C[0x190 - 0x15C];
-    f32 mOutputPan;          // _190
-    f32 mOutputSurroundPan;  // _194
-    f32 mOutputMainSend;     // _198
-    f32 mOutputFxSend;       // _19C
+    float mPan;                   // _140
+    float mSurroundPan;           // _144
+    float mMainSend;              // _148
+    uint8_t _14C[0x158 - 0x14C];
+    float mOutputVol;  // _158
+    uint8_t _15C[0x190 - 0x15C];
+    float mOutputPan;          // _190
+    float mOutputSurroundPan;  // _194
+    float mOutputMainSend;     // _198
+    float mOutputFxSend;       // _19C
 
-    static u64 g_LastInstanceId;
+    static uint64_t g_LastInstanceId;
 };
 }  // namespace detail
-}  // namespace atk
-}  // namespace nn
+} // namespace nn::atk
+

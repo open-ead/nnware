@@ -1,9 +1,8 @@
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
 
-namespace nn {
-namespace atk {
-enum class AuxBus : s32 { AuxBus_A, AuxBus_B, AuxBus_C };
+namespace nn::atk {
+enum class AuxBus : int32_t { AuxBus_A, AuxBus_B, AuxBus_C };
 }
-}  // namespace nn
+

@@ -5,25 +5,25 @@
 
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
 
-namespace nn {
-namespace atk {
-namespace detail {
+namespace nn::atk::detail {
+
 class WaveSoundRuntime {
 public:
     WaveSoundRuntime();
     ~WaveSoundRuntime();
 
-    void Initialize(s32, void**, void const*);
+    void Initialize(int32_t, void**, void const*);
     void Finalize();
-    s32 GetActiveCount() const;
-    s32 GetFreeWaveSoundCount() const;
-    void SetupUserParam(void**, u64);
+    int32_t GetActiveCount() const;
+    int32_t GetFreeWaveSoundCount() const;
+    void SetupUserParam(void**, uint64_t);
     void Update();
 
-    u8 _0[0x80];
+    uint8_t _0[0x80];
 };
-}  // namespace detail
-}  // namespace atk
-}  // namespace nn
+
+} // namespace nn::atk::detail
+
+

@@ -1,25 +1,22 @@
 /**
- * @file SoundDataManager.h
  * @brief Sound data management implementation.
  */
 
 #pragma once
 
-#include <nn/types.h>
-
-namespace nn {
-namespace atk {
+#include <cstdint>
+namespace nn::atk {
 class SoundDataManager {
 public:
     SoundDataManager();
     virtual ~SoundDataManager();
 
     virtual void InvalidateData(void const*, void const*);
-    virtual void SetFileAddressToTable(u32, void const*);
-    virtual u64 GetFileAddressFromTable(u32) const;
-    virtual u32 GetFileAddressImpl(u32) const;
+    virtual void SetFileAddressToTable(uint32_t, void const*);
+    virtual uint64_t GetFileAddressFromTable(uint32_t) const;
+    virtual uint32_t GetFileAddressImpl(uint32_t) const;
 
-    u8 _0[0x240];
+    uint8_t _0[0x240];
 };
-}  // namespace atk
-}  // namespace nn
+} // namespace nn::atk
+

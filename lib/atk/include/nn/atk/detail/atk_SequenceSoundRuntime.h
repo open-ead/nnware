@@ -1,15 +1,12 @@
 /**
- * @file SequenceSoundRuntime.h
  * @brief Sequenced Sound Runtime Info
  */
 
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
 
-namespace nn {
-namespace atk {
-namespace detail {
+namespace nn::atk::detail {
 class SoundArchiveManager;
 
 class SequenceSoundRuntime {
@@ -17,21 +14,21 @@ public:
     SequenceSoundRuntime();
     ~SequenceSoundRuntime();
 
-    void Initialize(s32, void**, void const*);
+    void Initialize(int32_t, void**, void const*);
     void Finalize();
-    void SetupSequenceTrack(s32, void**, void const*);
-    void SetupUserParam(void**, u64);
+    void SetupSequenceTrack(int32_t, void**, void const*);
+    void SetupUserParam(void**, uint64_t);
     bool IsSoundArchiveAvailable() const;
-    s32 GetActiveCount() const;
-    s32 GetFreeCount() const;
-    void SetSequenceSkipIntervalTick(s32 tick);
-    s32 GetSequenceSkipIntervalTick();
+    int32_t GetActiveCount() const;
+    int32_t GetFreeCount() const;
+    void SetSequenceSkipIntervalTick(int32_t tick);
+    int32_t GetSequenceSkipIntervalTick();
     void Update();
 
-    u8 _0[0xD0];
+    uint8_t _0[0xD0];
     nn::atk::detail::SoundArchiveManager* mArchiveManager;  // _D0
-    u64 _D8;
+    uint64_t _d8;
 };
-}  // namespace detail
-}  // namespace atk
-}  // namespace nn
+} // namespace nn::atk::detail
+
+
