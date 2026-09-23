@@ -6,8 +6,7 @@
 #include <nn/gfx/gfx_ResShader.h>
 #include <nn/gfx/gfx_ResTexture.h>
 
-namespace nn {
-namespace vfx {
+namespace nn::vfx {
 
 class Heap;
 struct EmitterResource;
@@ -61,5 +60,5 @@ public:
     void OutputResourceInfo() const;
 };
 
-}  // namespace vfx
-}  // namespace nn
+} // namespace nn::vfx
+

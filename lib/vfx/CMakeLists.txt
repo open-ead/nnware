@@ -1,9 +1,17 @@
 cmake_minimum_required(VERSION 3.15)
 
+find_nnsdk()
+find_nnsdk_module(nn_gfx)
+
 set(NN_VFX_HEADERS
+  include/nn/vfx/vfx_Config.h
+  include/nn/vfx/vfx_Heap.h
+  include/nn/vfx/vfx_Resource.h
+  include/nn/vfx/vfx_System.h
 )
 
 set(NN_VFX_SOURCES
+  src/vfx/vfx_Stub.cpp
 )
 
 add_library(nn_vfx OBJECT ${NN_VFX_SOURCES})
@@ -22,6 +30,8 @@ set_target_properties(nn_vfx PROPERTIES
 target_include_directories(nn_vfx PUBLIC include/)
 
 target_nn_ver(nn_vfx PUBLIC NN_WARE)
+target_nn_ver(nn_gfx PUBLIC NN_WARE)
+target_nn_ver(nnSdk INTERFACE NN_WARE)
 target_compile_options(nn_vfx INTERFACE
     -fno-strict-aliasing
     -fno-exceptions
@@ -29,3 +39,6 @@ target_compile_options(nn_vfx INTERFACE
     -Wextra
     -Wno-invalid-offsetof
 )
+target_link_libraries(nn_vfx PUBLIC nn_g3d)
+target_link_libraries(nn_vfx PUBLIC nn_gfx)
+target_link_libraries(nn_vfx PUBLIC nnSdk)

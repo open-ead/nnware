@@ -1,15 +1,14 @@
 /**
- * @file Config.h
  * @brief VFX configuration.
  */
 
 #pragma once
 
-namespace nn {
-namespace vfx {
+
+namespace nn::vfx {
 class Config {
 public:
     virtual ~Config();
 };
-}  // namespace vfx
-}  // namespace nn
+} // namespace nn::vfx
+
