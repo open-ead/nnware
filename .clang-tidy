@@ -28,6 +28,7 @@ Checks: >
   -misc-const-correctness,
   -misc-include-cleaner,
   -misc-use-internal-linkage,
+  -misc-override-with-different-visibility,
   modernize-*,
   -modernize-use-nodiscard,
   -modernize-loop-convert,

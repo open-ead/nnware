@@ -178,7 +178,7 @@ private:
     void* mAnimExtUserData;
     char mPanelName[25];
     char mUserData[9];
-    uint16_t _DA;
-    uint32_t _DC;
+    uint16_t _da;
+    uint32_t _dc;
 };
 }  // namespace nn::ui2d

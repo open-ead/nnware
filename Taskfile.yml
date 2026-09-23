@@ -3,8 +3,11 @@ version: '3'
 # https://taskfile.dev
 
 vars:
-  # Sources to check with clang-format/clang-tidy
-  SOURCES: lib
+  # Modules to check with clang-format/clang-tidy;
+  MODULES: atk,font,g3d,ui2d,vfx
+  _SOURCES1: ',{{.MODULES}}'
+  SOURCES: '{{._SOURCES1 | replace "," " lib/"}}'
+  CLANG_TIDY_LIBS: '{{.MODULES | replace " " "" | replace "," "|" }}'
 
 tasks:
   clone-deps:
@@ -72,7 +75,7 @@ tasks:
           | xargs -P {{numCPU}} -n 1 clang-format {{.ARGS}}
   clang-tidy:
     vars:
-      CMD: clang-tidy --warnings-as-errors="*" --header-filter="include/(nn|nvn|nvnTool|nv)" -p build --quiet
+      CMD: clang-tidy --warnings-as-errors="*" --header-filter="include/nn/({{.CLANG_TIDY_LIBS}})" -p build --quiet
     cmds:
       - silent: true
         cmd: |

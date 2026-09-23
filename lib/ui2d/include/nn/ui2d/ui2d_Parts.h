@@ -20,8 +20,8 @@ public:
 
     virtual ~Parts();
 
-    uint64_t _E0;
-    uint64_t _E8;
-    uint32_t _F0;
+    uint64_t _e0;
+    uint64_t _e8;
+    uint32_t _f0;
 };
 }  // namespace nn::ui2d
