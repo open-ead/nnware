@@ -5,8 +5,8 @@
 
 #pragma once
 
-#include <nn/gfx/gfx_Types.h>
 #include <cstdint>
+#include <nn/gfx/gfx_Types.h>
 
 namespace nn::g3d {
 class ResMaterial;
@@ -27,5 +27,4 @@ public:
     uint8_t _0[0x70];
 };
 
-} // namespace nn::g3d
-
+}  // namespace nn::g3d

@@ -60,5 +60,4 @@ public:
     void OutputResourceInfo() const;
 };
 
-} // namespace nn::vfx
-
+}  // namespace nn::vfx

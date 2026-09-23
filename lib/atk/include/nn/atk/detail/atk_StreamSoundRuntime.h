@@ -14,6 +14,4 @@ public:
     char _0[0xB0];
 };
 
-} // namespace nn::atk::detail
-
-
+}  // namespace nn::atk::detail

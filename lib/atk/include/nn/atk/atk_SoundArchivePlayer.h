@@ -32,5 +32,4 @@ public:
     uint8_t _29C[0x2E8 - 0x29C];
 };
 
-} // namespace nn::atk
-
+}  // namespace nn::atk

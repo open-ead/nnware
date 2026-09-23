@@ -19,7 +19,8 @@ struct ResExtUserDataList;
 class ResExtUserData;
 
 bool LoadTexture(ResourceTextureInfo*, gfx::Device*, const void*);
-void LoadArchiveShader(ShaderInfo*, gfx::Device*, void*, const void*, gfx::MemoryPool*, int64_t, uint64_t);
+void LoadArchiveShader(ShaderInfo*, gfx::Device*, void*, const void*, gfx::MemoryPool*, int64_t,
+                       uint64_t);
 void FreeArchiveShader(gfx::Device*, ShaderInfo*);
 void ConvertBlendsToArchiveShaderName(char*, int32_t, int32_t);
 bool ConvertArchiveShaderNameToBlends(int32_t*, int32_t*, const char*);

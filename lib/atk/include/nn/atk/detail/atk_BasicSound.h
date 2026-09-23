@@ -6,7 +6,6 @@
 
 #include <cstdint>
 
-
 namespace nn::atk {
 class SoundActor;
 class SoundPlayer;
@@ -91,13 +90,13 @@ public:
     void SetMainSend(float);
     float GetMainSend() const;
 
-    uint64_t* _8;                             // nn::atk::detail::PlayerHeap*
-    uint64_t* _10;                            // nn::atk::SoundHandle*
-    uint64_t* _18;                            // nn::atk::SoundHandle*
+    uint64_t* _8;                        // nn::atk::detail::PlayerHeap*
+    uint64_t* _10;                       // nn::atk::SoundHandle*
+    uint64_t* _18;                       // nn::atk::SoundHandle*
     nn::atk::SoundPlayer* mSoundPlayer;  // _20
-    uint64_t* _28;                            // nn::atk::SoundActor*
-    uint64_t* _30;                            // nn::atk::detail::ExternalSoundPlayer*
-    uint64_t* _38;                            // nn::atk::SoundArchive*
+    uint64_t* _28;                       // nn::atk::SoundActor*
+    uint64_t* _30;                       // nn::atk::detail::ExternalSoundPlayer*
+    uint64_t* _38;                       // nn::atk::SoundArchive*
     uint8_t _40[0xF0 - 0x40];
     int32_t mPriority;  // _F0
     uint32_t _f4;
@@ -118,9 +117,9 @@ public:
     uint32_t _134;
     uint32_t _138;
     nn::atk::MixMode mMixMode;  // _13C
-    float mPan;                   // _140
-    float mSurroundPan;           // _144
-    float mMainSend;              // _148
+    float mPan;                 // _140
+    float mSurroundPan;         // _144
+    float mMainSend;            // _148
     uint8_t _14C[0x158 - 0x14C];
     float mOutputVol;  // _158
     uint8_t _15C[0x190 - 0x15C];
@@ -132,5 +131,4 @@ public:
     static uint64_t g_LastInstanceId;
 };
 }  // namespace detail
-} // namespace nn::atk
-
+}  // namespace nn::atk

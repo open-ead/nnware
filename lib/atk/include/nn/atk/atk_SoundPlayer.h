@@ -6,7 +6,6 @@
 
 #include <cstdint>
 
-
 namespace nn::atk {
 enum PauseMode {
 
@@ -42,14 +41,13 @@ public:
     int32_t _40;
     int32_t mPlayableSoundCount;  // _44
     int32_t _48;
-    float mVolume;             // _4C
-    float mLowPassFreq;        // _50
-    int32_t mFilterType;         // _54
-    float mBaseFreq;           // _58
+    float mVolume;                // _4C
+    float mLowPassFreq;           // _50
+    int32_t mFilterType;          // _54
+    float mBaseFreq;              // _58
     uint32_t mDefaultOutputLine;  // _5C
-    float mOutputVolume;       // _60
+    float mOutputVolume;          // _60
     uint64_t _64;
     uint64_t _6C;
 };
-} // namespace nn::atk
-
+}  // namespace nn::atk

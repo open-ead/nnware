@@ -19,5 +19,4 @@ public:
     uint8_t data[0x7C - 0x4];
 };
 
-} // namespace nn::atk
-
+}  // namespace nn::atk

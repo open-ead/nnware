@@ -9,5 +9,4 @@ class Heap {
 public:
     virtual ~Heap();
 };
-} // namespace nn::vfx
-
+}  // namespace nn::vfx

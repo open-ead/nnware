@@ -9,8 +9,8 @@
 #include <nn/gfx/gfx_Device.h>
 #include <nn/ui2d/ui2d_Types.h>
 #include <nn/util.h>
-#include <nn/util/util_MathTypes.h>
 #include <nn/util/util_IntrusiveList.h>
+#include <nn/util/util_MathTypes.h>
 
 namespace nn::ui2d::detail {
 

@@ -52,5 +52,4 @@ private:
     static void* g_pAllocateFunction;
     static void* g_pFreeFunction;
 };
-} // namespace nn::ui2d
-
+}  // namespace nn::ui2d

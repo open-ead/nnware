@@ -28,5 +28,4 @@ private:
     nn::g3d::BindFuncTable::EntryPointer strings[4];
 };
 
-} // namespace nn::g3d
-
+}  // namespace nn::g3d

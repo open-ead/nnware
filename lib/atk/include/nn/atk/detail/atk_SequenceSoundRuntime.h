@@ -29,6 +29,4 @@ public:
     nn::atk::detail::SoundArchiveManager* mArchiveManager;  // _D0
     uint64_t _d8;
 };
-} // namespace nn::atk::detail
-
-
+}  // namespace nn::atk::detail

@@ -11,5 +11,4 @@ public:
     int32_t Bind(nn::g3d::BindFuncTable const&);
 };
 
-} // namespace nn::g3d
-
+}  // namespace nn::g3d

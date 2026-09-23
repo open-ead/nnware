@@ -24,5 +24,4 @@ public:
     uint64_t _E8;
     uint32_t _F0;
 };
-} // namespace nn::ui2d
-
+}  // namespace nn::ui2d

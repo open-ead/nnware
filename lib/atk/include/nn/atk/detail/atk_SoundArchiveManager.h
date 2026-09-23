@@ -37,5 +37,4 @@ public:
     uint64_t _40;
 };
 }  // namespace detail
-} // namespace nn::atk
-
+}  // namespace nn::atk

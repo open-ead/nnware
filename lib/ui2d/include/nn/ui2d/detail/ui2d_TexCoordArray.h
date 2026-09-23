@@ -7,8 +7,8 @@
 
 #include <cstdint>
 
-#include <nn/util/util_MathTypes.h>
 #include <nn/ui2d/ui2d_Layout.h>
+#include <nn/util/util_MathTypes.h>
 
 namespace nn::ui2d::detail {
 class TexCoordArray {
@@ -24,9 +24,7 @@ public:
 
     uint16_t _0;
     uint16_t _2;
-    uint32_t _4;                     // padding?
+    uint32_t _4;                // padding?
     nn::ui2d::Layout* mLayout;  // _8
 };
-} // namespace nn::ui2d::detail
-
-
+}  // namespace nn::ui2d::detail

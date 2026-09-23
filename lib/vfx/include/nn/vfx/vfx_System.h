@@ -21,5 +21,4 @@ public:
 
     char _0[0x1700];
 };
-} // namespace nn::vfx
-
+}  // namespace nn::vfx

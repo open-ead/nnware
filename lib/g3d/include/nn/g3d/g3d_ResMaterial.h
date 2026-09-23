@@ -25,5 +25,4 @@ public:
     uint8_t _0[0xB4];
 };
 
-} // namespace nn::g3d
-
+}  // namespace nn::g3d

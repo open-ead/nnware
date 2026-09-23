@@ -20,6 +20,4 @@ public:
 
     uint8_t _0[0x30];
 };
-} // namespace nn::atk::detail
-
-
+}  // namespace nn::atk::detail

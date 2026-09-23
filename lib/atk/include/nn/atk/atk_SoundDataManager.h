@@ -18,5 +18,4 @@ public:
 
     uint8_t _0[0x240];
 };
-} // namespace nn::atk
-
+}  // namespace nn::atk

@@ -17,5 +17,4 @@ public:
     void Reset();
 };
 
-} // namespace nn::g3d
-
+}  // namespace nn::g3d
