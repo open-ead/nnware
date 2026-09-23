@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nn/g3d/ResFile.h>
+#include <nn/g3d/g3d_ResFile.h>
 #include <nn/gfx/gfx_DescriptorSlot.h>
 #include <nn/gfx/gfx_Device.h>
 #include <nn/gfx/gfx_ResShader.h>

@@ -21,9 +21,25 @@ function(target_nn_ver LIB_TARGET SCOPE ID)
   list(POP_FRONT VER MAJOR MINOR PATCH)
   
   foreach(VAR IN ITEMS MAJOR MINOR PATCH)
-      target_compile_definitions(${LIB_TARGET} ${SCOPE} ${ID}_${VAR}=${${VAR}})
+    target_compile_definitions(${LIB_TARGET} ${SCOPE} ${ID}_${VAR}=${${VAR}})
   endforeach()
 endfunction()
 
+function(find_nnsdk)
+  if(NOT TARGET nnSdk)
+    if(DEFINED NNSDK_DIR)
+      message(STATUS "Found NintendoSDK: ${NNSDK_DIR}")
+      add_subdirectory(${NNSDK_DIR} ${NNSDK_DIR}/build)
+    else()
+      message(FATAL_ERROR "NintendoSDK cannot be found. Ensure your project adds open-ead/nnsdk as a dependency (submodule), and your CMakeLists.txt contains `add_subdirectory(path/to/nnsdk)`")
+    endif()
+  endif()
+endfunction()
 
-# add_subdirectory(..) TODO
+function(find_nnsdk_module NN_SDK_MODULE)
+  if(NOT TARGET ${NN_SDK_MODULE})
+    message(FATAL_ERROR "Cannot find ${NN_SDK_MODULE}. You appear to have a broken or unsupported NintendoSDK. Please use open-ead/nnsdk.")
+  endif()
+endfunction()
+
+add_subdirectory(lib/g3d)

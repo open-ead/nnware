@@ -1,0 +1,81 @@
+version: '3'
+
+# https://taskfile.dev
+
+vars:
+  # Sources to check with clang-format/clang-tidy
+  SOURCES: lib
+
+tasks:
+  clone-deps:
+    desc: Clone dependencies for development
+    cmds:
+      - git clone https://github.com/open-ead/nnsdk lib/nnsdk
+    
+  pr:
+    desc: Run everything the PR checks
+    cmds:
+      - task: configure
+      - task: build
+      - task: check
+
+  configure:
+    desc: Configure CMake
+    cmds:
+      - >
+        cmake -G Ninja -B build -S .
+        -DNN_SDK=1.2.3 
+        -DNN_WARE=1.2.3 
+        -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+        -DCMAKE_CXX_STANDARD=17
+        -DCMAKE_C_COMPILER=clang
+        -DCMAKE_CXX_COMPILER=clang++
+        -DNNSDK_DIR=$(pwd)/lib/nnsdk
+  build:
+    desc: Check the project builds
+    cmds:
+      - cmake --build build
+      - cmake --build build --target all_verify_header_sets
+
+  check:
+    desc: Run clang-format and clang-tidy checks
+    cmds:
+      # print versions in CI so it's 'Works On My Machine' is debugable
+      - silent: true
+        cmd: |
+          if [ -n "$CI" ]; then
+            clang-format --version
+            clang-tidy --version
+          fi
+      - task: clang-format
+        vars: { ARGS: -n -Werror }
+      - task: clang-tidy
+  fix:
+    desc: Run clang-format to format the code
+    cmds:
+      - task: clang-format
+        vars: { ARGS: -i }
+
+  clean:
+    desc: Remove CMake build files
+    cmds:
+      - rm -rf build
+
+  clang-format:
+    cmds:
+      - silent: true
+        cmd: > 
+          echo 'running clang-format with {{numCPU}} cpus with args: {{.ARGS}}';
+          find {{.SOURCES}}
+          -regextype posix-extended
+          -regex '.*\.[ch](\+\+|pp|xx|c|h)?'
+          | xargs -P {{numCPU}} -n 1 clang-format {{.ARGS}}
+  clang-tidy:
+    vars:
+      CMD: clang-tidy --warnings-as-errors="*" --header-filter="include/(nn|nvn|nvnTool|nv)" -p build --quiet
+    cmds:
+      - silent: true
+        cmd: |
+          echo 'running clang-tidy with {{numCPU}} cpus';
+          find {{.SOURCES}} -regextype posix-extended -regex '.*\.[ch](\+\+|pp|xx|c|h)?' | xargs -P {{numCPU}} -n 1 sh -c 'printf "\r\033[Kclang-tidy: $1"; {{.CMD}} "$1"' _;
+          echo ''
