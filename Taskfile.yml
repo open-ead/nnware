@@ -27,6 +27,11 @@ tasks:
   configure:
     desc: Configure CMake
     cmds:
+      - task: cmake
+        vars:
+          CMAKE_ARGS: -DNNSDK_DIR=$(pwd)/lib/nnsdk
+  cmake:
+    cmds:
       - >
         cmake -G Ninja -B build -S .
         -DNN_SDK=1.2.3 
@@ -35,7 +40,12 @@ tasks:
         -DCMAKE_CXX_STANDARD=17
         -DCMAKE_C_COMPILER=clang
         -DCMAKE_CXX_COMPILER=clang++
-        -DNNSDK_DIR=$(pwd)/lib/nnsdk
+        -DCMAKE_C_FLAGS='-D__aarch64__'
+        -DCMAKE_CXX_FLAGS='-D__aarch64__'
+        {{.CMAKE_ARGS}}
+        {{.CLI_ARGS}}
+      
+
   build:
     desc: Check the project builds
     vars:
