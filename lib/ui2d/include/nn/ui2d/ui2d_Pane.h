@@ -8,7 +8,7 @@
 #include <nn/font/font_Util.h>
 #include <nn/gfx/gfx_Device.h>
 #include <nn/types.h>
-#include <nn/ui2d/Types.h>
+#include <nn/ui2d/ui2d_Types.h>
 #include <nn/util.h>
 #include <nn/util/MathTypes.h>
 #include <nn/util/util_IntrusiveList.h>
