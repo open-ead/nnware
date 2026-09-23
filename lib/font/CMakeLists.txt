@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.15)
-
 set(NN_FONT_HEADERS
   include/nn/font/font_Util.h
 )

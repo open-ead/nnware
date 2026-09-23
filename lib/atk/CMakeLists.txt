@@ -1,9 +1,19 @@
-cmake_minimum_required(VERSION 3.15)
-
 set(NN_ATK_HEADERS
+  include/nn/atk.h
+  include/nn/atk/atk_AuxBus.h
+  include/nn/atk/atk_SoundArchivePlayer.h
+  include/nn/atk/atk_SoundDataManager.h
+  include/nn/atk/atk_SoundPlayer.h
+  include/nn/atk/detail/atk_AdvancedWaveSoundRuntime.h
+  include/nn/atk/detail/atk_BasicSound.h
+  include/nn/atk/detail/atk_SequenceSoundRuntime.h
+  include/nn/atk/detail/atk_SoundArchiveManager.h
+  include/nn/atk/detail/atk_StreamSoundRuntime.h
+  include/nn/atk/detail/atk_WaveSoundRuntime.h
 )
 
 set(NN_ATK_SOURCES
+  src/atk/atk_Stub.cpp
 )
 
 add_library(nn_atk OBJECT ${NN_ATK_SOURCES})

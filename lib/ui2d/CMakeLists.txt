@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.15)
-
 find_nnsdk()
 find_nnsdk_module(nn_gfx)
 
