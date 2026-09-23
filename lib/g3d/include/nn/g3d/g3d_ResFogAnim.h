@@ -1,21 +1,20 @@
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
 
-namespace nn {
-namespace g3d {
+namespace nn::g3d {
 class ResFogAnim {
 public:
     char mMagic[4];           // _0
-    u16 mFlags;               // _4
-    u16 mPad;                 // _6
-    s32 mNumFrames;           // _8
-    u8 mNumCurves;            // _C
-    u8 mIdxDistanceAttnFunc;  // _D
-    u16 mNumUserData;         // _E
-    u32 mSizeBaked;           // _10
-    u64 mNameOffset;          // _14
-    u64 mFuncNameOffset;      // _1C
+    uint16_t mFlags;               // _4
+    uint16_t mPad;                 // _6
+    int32_t mNumFrames;           // _8
+    uint8_t mNumCurves;            // _C
+    uint8_t mIdxDistanceAttnFunc;  // _D
+    uint16_t mNumUserData;         // _E
+    uint32_t mSizeBaked;           // _10
+    uint64_t mNameOffset;          // _14
+    uint64_t mFuncNameOffset;      // _1C
 };
-}  // namespace g3d
-}  // namespace nn
+} // namespace nn::g3d
+

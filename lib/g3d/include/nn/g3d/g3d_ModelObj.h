@@ -1,6 +1,7 @@
 #pragma once
 
-#include <nn/types.h>
+#include <cstddef>
+#include <cstdint>
 
 namespace nn::g3d {
 
@@ -14,9 +15,9 @@ class ModelObj {
 public:
     SkeletonObj* GetSkeleton() const { return m_Skeleton; }
 
-    s32 GetNumShapes() const { return m_NumShapes; }
+    int32_t GetNumShapes() const { return m_NumShapes; }
 
-    s32 get_8c() const { return _8c; }
+    int32_t get_8c() const { return _8c; }
 
 private:
     struct InitializeArgument;
@@ -26,13 +27,13 @@ private:
     const ResModel* m_ResModel;
     void* _8;
     void* _10;
-    u8 _18;
-    u8 _19;
-    u16 _1a;
+    uint8_t _18;
+    uint8_t _19;
+    uint16_t _1a;
     void* _20;
     void* _28;
-    u16 m_NumShapes;
-    u16 m_NumMaterials;
+    uint16_t m_NumShapes;
+    uint16_t m_NumMaterials;
     SkeletonObj* m_Skeleton;
     ShapeObj* m_Shapes;
     MaterialObj* m_Materials;

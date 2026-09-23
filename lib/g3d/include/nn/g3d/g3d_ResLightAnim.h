@@ -1,15 +1,15 @@
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
 
-namespace nn {
-namespace g3d {
+namespace nn::g3d {
 
 class BindFuncTable;
 
 class ResLightAnim {
 public:
-    s32 Bind(nn::g3d::BindFuncTable const&);
+    int32_t Bind(nn::g3d::BindFuncTable const&);
 };
-}  // namespace g3d
-}  // namespace nn
+
+} // namespace nn::g3d
+

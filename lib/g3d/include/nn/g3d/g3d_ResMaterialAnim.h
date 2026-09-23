@@ -1,21 +1,21 @@
 /**
- * @file ResMaterialAnim.h
  * @brief Resource file for material animations.
  */
 
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
 
-namespace nn {
-namespace g3d {
+namespace nn::g3d {
+
 typedef void* TextureRef;
 
 class ResMaterialAnim {
 public:
     void ReleaseTexture();
-    s32 BindTexture(nn::g3d::TextureRef (*)(char const*, void*), void*);
+    int32_t BindTexture(nn::g3d::TextureRef (*)(char const*, void*), void*);
     void Reset();
 };
-}  // namespace g3d
-}  // namespace nn
+
+} // namespace nn::g3d
+

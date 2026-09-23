@@ -4,8 +4,8 @@
 #include <nn/util/util_BinTypes.h>
 #include <nn/util/util_BinaryFormat.h>
 #include <nn/util/util_ResDic.h>
-#include "nn/gfx/gfx_ResUserData.h"
-#include "nn/util/MathTypes.h"
+#include <nn/util/util_MathTypes.h>
+#include <nn/gfx/gfx_ResUserData.h>
 
 namespace nn::g3d {
 
@@ -77,7 +77,7 @@ public:
         Mask_Rot = 0x7 << Shift_Rot,
         Mask_Billboard = 0x7 << Shift_Billboard,
         Mask_MirroringState = 0x7 << Shift_MirroringState,
-        Mask_Transform = Flag_SegmentScaleCompensate | Flag_Identity
+        Mask_Transform = Flag_SegmentScaleCompensate | Flag_Identity,
     };
 
     static constexpr int InvalidBoneIndex = 0xffff;
@@ -169,7 +169,7 @@ public:
         Mask_MirroringMode = 0x3 << Shift_MirroringMode,
         Mask_Scale = 0x3 << Shift_Scale,
         Mask_Rot = ResBone::Mask_Rot,
-        Mask_TransForm = Mask_Scale | Mask_Rot
+        Mask_TransForm = Mask_Scale | Mask_Rot,
     };
 
     enum ResetGuardFlag {

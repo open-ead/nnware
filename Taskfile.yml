@@ -25,7 +25,7 @@ tasks:
       - >
         cmake -G Ninja -B build -S .
         -DNN_SDK=1.2.3 
-        -DNN_WARE=1.2.3 
+        -DNN_WARE=4.5.6 
         -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
         -DCMAKE_CXX_STANDARD=17
         -DCMAKE_C_COMPILER=clang

@@ -1,15 +1,16 @@
 #pragma once
 
-#include <nn/types.h>
+#include <cstddef>
+#include <cstdint>
 
-namespace nn {
-namespace g3d {
+namespace nn::g3d {
+
 struct DDLDeclarations {
-    u64 _0;
-    u32 _8;
-    u32 DDLDeclarations_xC;
-    u64 _10;
-    u64 _18;
+    uint64_t _0;
+    uint32_t _8;
+    uint32_t DDLDeclarations_xC;
+    uint64_t _10;
+    uint64_t _18;
 };
 
 class BindFuncTable {
@@ -27,5 +28,5 @@ private:
     nn::g3d::BindFuncTable::EntryPointer strings[4];
 };
 
-}  // namespace g3d
-}  // namespace nn
+} // namespace nn::g3d
+
