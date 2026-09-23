@@ -7,15 +7,10 @@
 
 #include <nn/font/font_Util.h>
 #include <nn/gfx/gfx_Device.h>
-#include <nn/types.h>
 #include <nn/ui2d/ui2d_Types.h>
 #include <nn/util.h>
-#include <nn/util/MathTypes.h>
+#include <nn/util/util_MathTypes.h>
 #include <nn/util/util_IntrusiveList.h>
-
-namespace nn::util {
-struct Unorm8x4;
-}
 
 namespace nn::ui2d::detail {
 
@@ -56,14 +51,14 @@ public:
 
     ~Pane() override;
     virtual void Finalize(gfx::Device*);
-    virtual s32 GetVertexColor(s32);
-    virtual void SetVertexColor(s32, util::Unorm8x4 const&);
-    virtual u8 GetColorElement(s32);
-    virtual void SetColorElement(u32, u8);
-    virtual u8 GetVertexColorElement(s32);
-    virtual void SetVertexColorElement(u32, u8);
-    virtual u32 GetMaterialCount() const;
-    virtual Material* GetMaterial(s32) const;
+    virtual int32_t GetVertexColor(int32_t);
+    virtual void SetVertexColor(int32_t, util::Unorm8x4 const&);
+    virtual uint8_t GetColorElement(int32_t);
+    virtual void SetColorElement(uint32_t, uint8_t);
+    virtual uint8_t GetVertexColorElement(int32_t);
+    virtual void SetVertexColorElement(uint32_t, uint8_t);
+    virtual uint32_t GetMaterialCount() const;
+    virtual Material* GetMaterial(int32_t) const;
     virtual Pane* FindPaneByName(char const*, bool);
     virtual const Pane* FindPaneByName(char const*, bool) const;
     virtual Material* FindMaterialByName(char const*, bool);
@@ -124,9 +119,9 @@ public:
         SetGlobalMatrixDirty(true);
     }
 
-    void SetAlpha(u8 alpha) { mAlpha = alpha; }
+    void SetAlpha(uint8_t alpha) { mAlpha = alpha; }
 
-    u8 GetGlobalAlpha() const { return mGlobalAlpha; }
+    uint8_t GetGlobalAlpha() const { return mGlobalAlpha; }
 
     const util::MatrixT4x3fType& GetMtx() const { return mMtx; }
 
@@ -170,12 +165,12 @@ private:
     util::Float3 mRotation;
     util::Float2 mScale;
     Size mSize;
-    u8 mFlags;
-    u8 mAlpha;
-    u8 mGlobalAlpha;
-    u8 mBasePosition;
-    u8 mFlagEx;
-    u32 mSystemDataFlags;
+    uint8_t mFlags;
+    uint8_t mAlpha;
+    uint8_t mGlobalAlpha;
+    uint8_t mBasePosition;
+    uint8_t mFlagEx;
+    uint32_t mSystemDataFlags;
     Layout* mLayout;
     util::MatrixT4x3fType mMtx;
     const util::MatrixT4x3fType* mUserMtx;
@@ -183,7 +178,7 @@ private:
     void* mAnimExtUserData;
     char mPanelName[25];
     char mUserData[9];
-    u16 _DA;
-    u32 _DC;
+    uint16_t _DA;
+    uint32_t _DC;
 };
 }  // namespace nn::ui2d

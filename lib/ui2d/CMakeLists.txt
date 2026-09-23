@@ -43,5 +43,6 @@ target_compile_options(nn_ui2d INTERFACE
     -Wno-invalid-offsetof
 )
 
+target_link_libraries(nn_ui2d PUBLIC nn_font)
 target_link_libraries(nn_ui2d PUBLIC nn_gfx)
 target_link_libraries(nn_ui2d PUBLIC nnSdk)

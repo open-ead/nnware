@@ -5,34 +5,28 @@
 
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
 
-namespace nn {
+#include <nn/util/util_MathTypes.h>
+#include <nn/ui2d/ui2d_Layout.h>
 
-namespace util {
-struct Float2;
-}
-
-namespace ui2d {
-class Layout;
-
-namespace detail {
+namespace nn::ui2d::detail {
 class TexCoordArray {
 public:
     void Initialize();
     void Free();
-    void Reserve(s32);
-    void SetSize(s32 size);
-    void GetCoord(nn::util::Float2*, s32) const;
-    void SetCoord(s32, nn::util::Float2 const*);
-    void Copy(void const*, s32);
+    void Reserve(int32_t);
+    void SetSize(int32_t size);
+    void GetCoord(nn::util::Float2*, int32_t) const;
+    void SetCoord(int32_t, nn::util::Float2 const*);
+    void Copy(void const*, int32_t);
     bool CompareCopiedInstanceTest(nn::ui2d::detail::TexCoordArray const&) const;
 
-    u16 _0;
-    u16 _2;
-    u32 _4;                     // padding?
+    uint16_t _0;
+    uint16_t _2;
+    uint32_t _4;                     // padding?
     nn::ui2d::Layout* mLayout;  // _8
 };
-}  // namespace detail
-}  // namespace ui2d
-}  // namespace nn
+} // namespace nn::ui2d::detail
+
+

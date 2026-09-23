@@ -42,4 +42,6 @@ function(find_nnsdk_module NN_SDK_MODULE)
   endif()
 endfunction()
 
+add_subdirectory(lib/font)
 add_subdirectory(lib/g3d)
+add_subdirectory(lib/ui2d)

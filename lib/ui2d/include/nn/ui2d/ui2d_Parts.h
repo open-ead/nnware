@@ -1,5 +1,4 @@
 /**
- * @file Parts.h
  * @brief Layout parts.
  */
 
@@ -7,8 +6,7 @@
 
 #include <nn/ui2d/ui2d_Pane.h>
 
-namespace nn {
-namespace ui2d {
+namespace nn::ui2d {
 struct BuildArgSet;
 struct ResParts;
 
@@ -22,9 +20,9 @@ public:
 
     virtual ~Parts();
 
-    u64 _E0;
-    u64 _E8;
-    u32 _F0;
+    uint64_t _E0;
+    uint64_t _E8;
+    uint32_t _F0;
 };
-}  // namespace ui2d
-}  // namespace nn
+} // namespace nn::ui2d
+

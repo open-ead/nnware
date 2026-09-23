@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nn/types.h>
+#include <cstdint>
 
 namespace nn::ui2d {
 
@@ -13,7 +13,7 @@ enum PaneFlag {
     PaneFlag_UserMatrix,
     PaneFlag_UserGlobalMatrix,
     PaneFlag_IsConstantBufferReady,
-    PaneFlag_MaxPaneFlag
+    PaneFlag_MaxPaneFlag,
 };
 
 enum PaneFlagEx {
@@ -24,33 +24,33 @@ enum PaneFlagEx {
     PaneFlagEx_IsConstantBufferReadySelf,
     PaneFlagEx_IsCalculationFinishedSelf,
     PaneFlagEx_DynamicExtUserDataEnabled,
-    PaneFlagEx_MaxPaneFlagEx
+    PaneFlagEx_MaxPaneFlagEx,
 };
 
 struct Size {
-    static Size Create(f32, f32);
+    static Size Create(float, float);
 
-    void Set(f32 aWidth, f32 aHeight) {
+    void Set(float aWidth, float aHeight) {
         width = aWidth;
         height = aHeight;
     }
 
-    f32 width;
-    f32 height;
+    float width;
+    float height;
 };
 }  // namespace nn::ui2d
 
 namespace nn::ui2d::detail {
 
 template <typename T>
-void SetBit(T* pBits, s32 pos, bool val) {
+void SetBit(T* pBits, int32_t pos, bool val) {
     const T mask = static_cast<T>(1 << pos);
     *pBits &= ~mask;
     *pBits |= mask * val;
 }
 
 template <typename T>
-bool TestBit(T bits, s32 pos) {
+bool TestBit(T bits, int32_t pos) {
     const T mask = static_cast<T>(1 << pos);
     return bits & mask;
 }
