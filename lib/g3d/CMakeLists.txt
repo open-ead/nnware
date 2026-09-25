@@ -22,7 +22,7 @@ set(NN_G3D_HEADERS
 )
 
 set(NN_G3D_SOURCES
-  src/g3d/g3d_Stub.cpp
+  src/g3d/g3d_ResMaterial.cpp
 )
 
 add_library(nn_g3d OBJECT ${NN_G3D_SOURCES})
