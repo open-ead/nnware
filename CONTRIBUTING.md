@@ -5,8 +5,9 @@
 To build and run checks, please install:
 - [task](https://taskfile.dev) for running commands.
 - CMake (check the version requirement in CMakeLists.txt) and Ninja.
-- Clang/LLVM toolchain for your host system. This is only used for `clang-format` and `clang-tidy`.
-  The version should match [the image used in the PR checks](https://github.com/open-ead/containers/blob/main/ubuntu-builder/Dockerfile).
+
+Please run `task clone-deps configure` before running the other
+commands.
 
 Workflows:
 - Run `task configure` to configure the CMake projects.
@@ -14,6 +15,10 @@ Workflows:
 - Run `task check` to check formatting and clang-tidy issues. `task fix` formats the files.
 - Run `task pr` to run the same checks that the PR runs.
   It's a good idea to always run this one before you open or update a PR.
+
+If there are errors after merging upstream updates, run `task clean clone-deps`
+to clean CMake cache and update your local dependencies. If the error
+persists, please ask for help in Discord.
 
 ## Repo Structure
 
