@@ -1,28 +1,28 @@
 #pragma once
 
-#include "nn/gfx/gfx_Device.h"
+#include <nn/gfx/gfx_Device.h>
 
 namespace nn::g3d {
 class MaterialObj {
 public:
     struct InitializeArgument {
-        s32 CalculateMemorySize();
+        void CalculateMemorySize();
     };
 
-    void Initialize(const InitializeArgument&, void*, u64);
+    bool Initialize(const InitializeArgument&, void*, uint64_t);
     void InitializeDependPointer();
-    void GetBlockBufferAlignment(gfx::TDevice<gfx::ApiVariationNvn8>*) const;
-    void CalculateBlockBufferSize(gfx::TDevice<gfx::ApiVariationNvn8>*) const;
+    int64_t GetBlockBufferAlignment(gfx::TDevice<gfx::ApiVariationNvn8>*) const;
+    int32_t CalculateBlockBufferSize(gfx::TDevice<gfx::ApiVariationNvn8>*) const;
     void SetupBlockBufferImpl(gfx::TDevice<gfx::ApiVariationNvn8>*,
-                              gfx::TMemoryPool<gfx::ApiVariationNvn8>*, s64, u64);
+                              gfx::TMemoryPool<gfx::ApiVariationNvn8>*, int64_t, uint64_t);
     void ResetDirtyFlags();
-    void SetupBlockBuffer(gfx::TDevice<gfx::ApiVariationNvn8>*,
-                          gfx::TMemoryPool<gfx::ApiVariationNvn8>*, s64, u64);
+    bool SetupBlockBuffer(gfx::TDevice<gfx::ApiVariationNvn8>*,
+                          gfx::TMemoryPool<gfx::ApiVariationNvn8>*, int64_t, uint64_t);
     void CleanupBlockBuffer(gfx::TDevice<gfx::ApiVariationNvn8>*);
-    void CalculateMaterial(s32);
+    void CalculateMaterial(int32_t);
 
     template <bool>
-    void ConvertDirtyParams(void*, u32*);
+    void ConvertDirtyParams(void*, uint32_t*);
 
 private:
     void* filler[16];

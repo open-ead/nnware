@@ -3,7 +3,8 @@
 #include <cstddef>
 #include <cstdint>
 
-#include <nn/g3d/MaterialObj.h>
+#include <nn/g3d/g3d_MaterialObj.h>
+#include <nn/g3d/g3d_ViewVolume.h>
 
 namespace nn::g3d {
 
@@ -11,14 +12,6 @@ class MaterialObj;
 class ResModel;
 class ShapeObj;
 class SkeletonObj;
-
-struct Bounds {
-    f32 x;
-    f32 y;
-    f32 z;
-    f32 unk;
-    f32 radius;
-};
 
 // TODO
 class ModelObj {
@@ -31,11 +24,11 @@ public:
 
     int32_t get_8c() const { return _8c; }
 
-    u8 GetViewDependentModelFlags() const { return m_ViewDependentModelFlags; }
+    uint8_t GetViewDependentModelFlags() const { return m_ViewDependentModelFlags; }
 
-    MaterialObj* GetMaterial(s32 index) const { return &m_Materials[index]; }
+    MaterialObj* GetMaterial(int32_t index) const { return &m_Materials[index]; }
 
-    const Bounds& GetBounds() const { return *m_Bounds; }
+    const Sphere& GetBounds() const { return *m_Bounds; }
 
 private:
     struct InitializeArgument;
@@ -46,7 +39,7 @@ private:
     void* _8;
     void* _10;
     uint8_t _18;
-    uint8_t m_ViewDependentModelFlags;
+    uint8_t m_ViewDependentModelFlags;  // TODO: is this right?
     uint16_t _1a;
     void* _20;
     void* _28;
@@ -55,7 +48,7 @@ private:
     SkeletonObj* m_Skeleton;
     ShapeObj* m_Shapes;
     MaterialObj* m_Materials;
-    Bounds* m_Bounds;
+    Sphere* m_Bounds;
     void* m_UserData;
     void* _60;
     void* _68;
