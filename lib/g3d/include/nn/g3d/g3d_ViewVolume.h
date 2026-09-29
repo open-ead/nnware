@@ -6,7 +6,13 @@
 
 namespace nn::g3d {
 class Aabb;
-class Sphere;
+
+struct Sphere {
+    float x;
+    float y;
+    float z;
+    float radius;
+};
 
 class ViewVolume {
 public:
