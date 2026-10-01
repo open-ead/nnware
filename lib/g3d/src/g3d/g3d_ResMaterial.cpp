@@ -86,7 +86,7 @@ uint64_t ResShaderParam::GetSrcSize(Type type) {
     return s_SrcSizeTable[type - kTypeSrt2d];
 }
 
-bool ResShaderParam::SetDependPointer(void* pDependPointer, const void* pSrc) const {
+bool ResShaderParam::SetDependPointer(void*, const void*) const {
     uint8_t dependOffset = _11;
     uint64_t srcSize = GetSrcSize(static_cast<Type>(m_Type));
     if (dependOffset <= srcSize)
@@ -279,17 +279,13 @@ uint64_t ResShaderParam::ConvertSrt2dExCallback(void* pDst, const void* pSrc, co
 uint64_t ResShaderParam::ConvertTexSrtCallback(void* pDst, const void* pSrc,
                                                const ResShaderParam* pParam,
                                                const void* pUserData) {
-    typedef uint64_t (*DispatchFunc)(void*, const void*);
-    return reinterpret_cast<DispatchFunc>(
-        s_TexSrtConvertFuncs[*static_cast<const uint32_t*>(pSrc)])(pDst, pSrc);
+    return s_TexSrtConvertFuncs[*static_cast<const uint32_t*>(pSrc)](pDst, pSrc, pParam, pUserData);
 }
 
 uint64_t ResShaderParam::ConvertTexSrtExCallback(void* pDst, const void* pSrc,
                                                  const ResShaderParam* pParam,
                                                  const void* pUserData) {
-    typedef uint64_t (*DispatchFunc)(void*, const void*);
-    return reinterpret_cast<DispatchFunc>(
-        s_TexSrtConvertFuncs[*static_cast<const uint32_t*>(pSrc)])(pDst, pSrc);
+    return s_TexSrtConvertFuncs[*static_cast<const uint32_t*>(pSrc)](pDst, pSrc, pParam, pUserData);
 }
 
 uint64_t ResMaterial::BindTexture(TextureRef (*pBindFunc)(char const*, void*), void* pUserData) {
